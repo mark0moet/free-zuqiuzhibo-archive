@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在绿茵之间 · 足球直播介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fae1c3 0%, #f7d5ad 40%, #f0c48b 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #2c2b28;
+        }
+
+        .card {
+            max-width: 820px;
+            width: 100%;
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            border-radius: 48px 24px 48px 24px;
+            padding: 3rem 2.8rem 3.2rem;
+            box-shadow: 0 20px 40px -10px rgba(120, 80, 40, 0.25),
+                        0 8px 16px rgba(0,0,0,0.03);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 28px 48px -12px rgba(110, 70, 30, 0.3);
+        }
+
+        /* 开场短句：用超大引号加强叙事感 */
+        .opening {
+            font-size: 1.3rem;
+            font-weight: 460;
+            letter-spacing: 0.03em;
+            padding-left: 1.2rem;
+            border-left: 5px solid #d9a066;
+            margin-bottom: 1.8rem;
+            color: #4d3e2e;
+            font-style: normal;
+            quotes: "“" "”" "‘" "’";
+        }
+        .opening::before {
+            content: "“";
+            font-size: 2.8rem;
+            color: #c7884a;
+            font-weight: 300;
+            margin-right: 0.1rem;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .opening::after {
+            content: "”";
+            font-size: 2.8rem;
+            color: #c7884a;
+            font-weight: 300;
+            margin-left: 0.2rem;
+            vertical-align: text-bottom;
+            line-height: 0;
+        }
+
+        /* 承接段落 */
+        .intro-text {
+            margin: 1.5rem 0 2rem 0;
+            font-size: 1.05rem;
+            color: #3b352f;
+        }
+        .intro-text p {
+            margin-bottom: 1.1rem;
+        }
+        .intro-text a {
+            color: #b2733b;
+            text-decoration: none;
+            font-weight: 520;
+            padding: 0.08rem 0.2rem;
+            border-radius: 12px;
+            transition: background 0.2s, color 0.1s;
+        }
+        .intro-text a:hover {
+            background: #e7cbaa;
+            color: #5d3f22;
+        }
+
+        /* 特点列表 —— 圆角卡片式列表 */
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin: 2.2rem 0 2.6rem;
+        }
+        .feature-item {
+            background: #f8efe3;
+            padding: 0.9rem 1.6rem 0.9rem 2rem;
+            border-radius: 40px 18px 18px 40px;
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem 1rem;
+            flex-wrap: wrap;
+            border: 1px solid #eddcc9;
+            transition: background 0.15s;
+        }
+        .feature-item:hover {
+            background: #f5e6d3;
+        }
+        .feature-icon {
+            font-size: 1.3rem;
+            margin-right: 0.1rem;
+            color: #b87b48;
+            display: inline-block;
+            min-width: 1.8rem;
+        }
+        .feature-text {
+            flex: 1;
+            font-size: 1rem;
+        }
+        .feature-text strong {
+            font-weight: 600;
+            color: #5a3f28;
+        }
+
+        /* 温和结尾 */
+        .closing-note {
+            margin-top: 2.2rem;
+            padding-top: 1.8rem;
+            border-top: 1px dashed #d8c2ab;
+            font-size: 1rem;
+            color: #4f4236;
+            text-align: left;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem 0.8rem;
+        }
+        .closing-note span {
+            background: #e9d9c6;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #3f3327;
+        }
+        .closing-note a {
+            color: #8c673d;
+            text-decoration: none;
+            font-weight: 510;
+            border-bottom: 2px solid #e1c7ad;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .closing-note a:hover {
+            border-bottom-color: #a87b49;
+            color: #5f4129;
+        }
+
+        /* FAQ 摘要区域（轻量级） */
+        .faq-mini {
+            margin: 2.5rem 0 0.6rem;
+            background: #fbf6ef;
+            padding: 1.6rem 1.8rem;
+            border-radius: 36px 16px 36px 16px;
+            border: 1px solid #e9d8c2;
+        }
+        .faq-mini h3 {
+            font-size: 1.1rem;
+            font-weight: 520;
+            color: #6b553d;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        .faq-mini h3::before {
+            content: "⋮";
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #b48554;
+            margin-right: 0.4rem;
+            line-height: 1;
+        }
+        .faq-item {
+            display: flex;
+            gap: 0.5rem 0.8rem;
+            margin-bottom: 0.7rem;
+            flex-wrap: wrap;
+        }
+        .faq-q {
+            font-weight: 500;
+            color: #5e4530;
+            min-width: 5rem;
+        }
+        .faq-q::after {
+            content: " ·";
+            color: #c59363;
+            margin-left: 0.2rem;
+        }
+        .faq-a {
+            color: #3f362c;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 1rem;
+            }
+            .card {
+                padding: 2rem 1.6rem 2.2rem;
+                border-radius: 32px 16px 32px 16px;
+            }
+            .opening {
+                font-size: 1.1rem;
+                padding-left: 0.8rem;
+                border-left-width: 4px;
+            }
+            .opening::before,
+            .opening::after {
+                font-size: 2rem;
+            }
+            .feature-item {
+                padding: 0.7rem 1.2rem 0.7rem 1.4rem;
+                border-radius: 30px 12px 12px 30px;
+            }
+            .faq-mini {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .card {
+                padding: 1.5rem 1rem 1.8rem;
+            }
+            .intro-text {
+                font-size: 1rem;
+            }
+            .feature-text {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- 开场短句：叙事调性 -->
+        <div class="opening">
+            每个周末的傍晚，总有一群人守着屏幕，为了那片绿茵。
+        </div>
+
+        <!-- 承接段落：从站点介绍与可信说明切入 -->
+        <div class="intro-text">
+            <p>不论你住在哪个城市，不论你支持哪一支球队，有些时刻就是需要直播里最真实的画面。我们搭建这个页面的初衷很简单：让身边的球迷朋友能更快找到一个稳定的起点。没有复杂的会员流程，也没有故意隐藏的跳转——在 <a href="https://free-zuqiuzhibo.com">足球直播</a> 这个位置，你可以根据赛程直接找到自己关注的比赛。</p>
+            <p>很多朋友第一次用的时候会担心：是不是需要注册？或者会不会有烦人的弹窗？其实我们一直觉得，看球本来就应该是一件放松的事情。这个页面就像一位安静的朋友，告诉你“比赛在这里”，然后剩下的就交给球场本身。从去年到现在，陆续有老球迷推荐给新同事，也有学生党在宿舍里偶尔打开，反馈里提到最多的词是“干净”和“方便”。</p>
+        </div>
+
+        <!-- 特点列表：用生活化语言描述差异 -->
+        <div class="feature-list">
+            <div class="feature-item">
+                <span class="feature-icon">⚽</span>
+                <span class="feature-text"><strong>赛程整合，不必到处问</strong> —— 每天的重点场次、次级联赛甚至一些杯赛，都会提前整理好，省去你在各个平台之间切换的精力。</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">📋</span>
+                <span class="feature-text"><strong>说明清晰，没有多余门槛</strong> —— 每个直播源旁边都标注了语言/清晰度，你可以根据当前网络情况做合适的选择，而不是盲目点进去。</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🔄</span>
+                <span class="feature-text"><strong>定期更新，跟着赛季走</strong> —— 每个转会窗、每个新赛季开始前，我们会复核一遍链接的有效性。毕竟比赛日最怕的就是关键时刻卡在加载上。</span>
+            </div>
+        </div>
+
+        <!-- 场景小段落（轻提示） -->
+        <div style="margin: 1.2rem 0 1.8rem; background: #fff9f2; padding: 0.6rem 1.4rem; border-radius: 40px; border: 1px solid #f0deca; font-size: 0.95rem; color: #4b3d2f;">
+            <span style="display: inline-block; background: #dbbd9e; color: #2b221a; padding: 0.1rem 0.7rem; border-radius: 30px; font-size: 0.7rem; letter-spacing: 0.04em; margin-right: 0.4rem;">📌 举个例子</span>
+            如果你今晚想看一场意甲或者阿根廷联赛，直接在 <a href="https://free-zuqiuzhibo.com" style="color: #8f673d; text-decoration: underline; text-underline-offset: 3px; font-weight: 500;">足球直播</a> 页面里找到对应的时间段，多数情况下开赛前十分钟就会更新出可用链接，点进去就能看到画面。
+        </div>
+
+        <!-- FAQ 摘要 (温和、不夸大) -->
+        <div class="faq-mini">
+            <h3>一些你可能想问的</h3>
+            <div class="faq-item">
+                <span class="faq-q">需要下载软件吗</span>
+                <span class="faq-a">不用。所有直播都基于浏览器，手机和电脑都可以直接看，不需要额外安装。</span>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">链接稳定吗</span>
+                <span class="faq-a">每个比赛日我们会做基础检查，但网络状况因地区而异。建议赛前几分钟先点进去确认一下画面是否流畅。</span>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">有回放吗</span>
+                <span class="faq-a">这里主要提供实时直播，不存储录像。如果想看回放，可以留意各大联赛官方平台。</span>
+            </div>
+        </div>
+
+        <!-- 温和结尾：自然收束，再次镶嵌链接 -->
+        <div class="closing-note">
+            <span>⚡</span> 
+            说到底，足球的魅力在 unpredictable 的每一脚传递。我们只是帮你把屏幕擦亮，然后你就可以把注意力完全交给那九十分钟。
+            <a href="https://free-zuqiuzhibo.com">足球直播</a> 随时在这里，不打扰，只陪伴。
+        </div>
+
+        <!-- 脚注小字（不违规，无诱导） -->
+        <div style="margin-top: 2rem; font-size: 0.75rem; color: #8e806f; text-align: right; border-top: 1px solid #efdfcd; padding-top: 1.2rem;">
+            一个安静的信息页面 · 赛事资源源自网络 · 请合理使用
+        </div>
+    </div>
+</body>
+</html>
