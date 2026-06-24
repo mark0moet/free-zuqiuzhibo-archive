@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>爱游戏 · 一处安静的入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", "Helvetica Neue", sans-serif;
+      background: #f2f5f9;
+      color: #1d2b3f;
+      line-height: 1.7;
+      padding: 0 1.2rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 0 3rem;
+    }
+
+    /* ── 深色头图 ── */
+    .hero {
+      background: linear-gradient(145deg, #0f1a2b 0%, #182b40 100%);
+      color: #e7edf3;
+      padding: 4rem 2rem 3rem;
+      border-radius: 0 0 2.4rem 2.4rem;
+      margin: 0 -1.2rem 3rem;
+      text-align: center;
+      box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .hero h1 span {
+      font-weight: 300;
+      color: #9bb7d4;
+    }
+
+    .hero .lead {
+      font-size: 1.1rem;
+      max-width: 580px;
+      margin: 0 auto;
+      color: #cbdae8;
+      line-height: 1.6;
+    }
+
+    .hero .meta {
+      margin-top: 1.8rem;
+      font-size: 0.85rem;
+      color: #7d96af;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 1.2rem;
+      display: inline-block;
+    }
+
+    /* ── 正文区 ── */
+    .content {
+      background: #ffffff;
+      border-radius: 1.8rem;
+      padding: 2.4rem 2rem;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    }
+
+    .content h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 2rem 0 0.8rem;
+      color: #132638;
+      border-left: 4px solid #3577b0;
+      padding-left: 1rem;
+    }
+
+    .content h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .content p {
+      margin-bottom: 1.35rem;
+      text-align: justify;
+      word-break: break-word;
+    }
+
+    .content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 引用提示 – 克制引用块 */
+    .insight {
+      background: #edf2f9;
+      border-left: 6px solid #3577b0;
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 1rem 1rem 0;
+      margin: 1.8rem 0;
+      font-style: normal;
+      color: #1f354a;
+      font-size: 1rem;
+    }
+
+    .insight strong {
+      color: #1d4e78;
+    }
+
+    blockquote {
+      border-left: 3px solid #b6cde0;
+      padding-left: 1.2rem;
+      margin: 1.5rem 1.2rem;
+      color: #3f556b;
+      font-size: 0.95rem;
+    }
+
+    /* 链接强调色 */
+    a {
+      color: #2575b5;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37, 117, 181, 0.25);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover, a:focus {
+      color: #12467a;
+      border-bottom-color: #12467a;
+    }
+
+    /* 访问句卡片 */
+    .visit-note {
+      background: #f7fafe;
+      border: 1px solid #dae6f2;
+      border-radius: 1.2rem;
+      padding: 1.8rem 1.8rem 1.5rem;
+      margin-top: 2.4rem;
+      text-align: center;
+    }
+
+    .visit-note p {
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+      color: #1b334b;
+    }
+
+    .visit-note .signature {
+      display: inline-block;
+      margin-top: 0.6rem;
+      padding: 0.3rem 1.8rem;
+      background: #e5eef8;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #1f4a70;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 3rem 1.2rem 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .content {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .content h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 0 0.8rem;
+      }
+
+      .hero {
+        margin-left: -0.8rem;
+        margin-right: -0.8rem;
+        border-radius: 0 0 1.8rem 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>爱游戏 <span>· 静候入口</span></h1>
+    <p class="lead">一个不喧哗的页面，只陈述站点本身——关于定位、使用与稳定的访问方式。</p>
+    <div class="meta">2025 · 简记</div>
+  </header>
+
+  <main class="content">
+
+    <h2>一处稳定的起点</h2>
+    <p>
+      很多网站随着时间迁移，域名或路径会发生细微调整。对长期使用的人来说，记住一个固定、可靠的地址比频繁搜索更省心力。
+      <a href="https://appwap-igame.com">爱游戏</a> 保持着相对简洁的访问结构，不依赖临时跳转或第三方聚合。
+      页面本身承载了游戏内容索引与社区入口的功能，不需要额外的中间步骤。
+    </p>
+
+    <div class="insight">
+      <strong>一点观察：</strong> 与其每次通过搜索引擎重新定位，不如直接保存主站链接。浏览器的书签栏或手机桌面图标，都能让下一次进入更利落。
+    </div>
+
+    <h2>关于页面的基本面貌</h2>
+    <p>
+      初次打开 <a href="https://appwap-igame.com">爱游戏</a> 时，你看到的是一个以内容瀑布流为主的界面——卡片式排列，封面图配合标题，点击后进入详情。没有全屏弹窗或强制引导，浏览节奏由你自己控制。这种设计在移动设备上尤其友好：单手滑动，内容逐条呈现，加载速度也控制在合理范围。
+    </p>
+    <p>
+      从个人体验来说，它的分类标签比较细致，从热门推荐到小众专题都有覆盖。如果你有明确想找的游戏类型，利用顶部筛选可以快速缩小范围。站内搜索的反应也算干脆，不会出现输入后长时间等待的情况。
+    </p>
+
+    <blockquote>
+      “用了一周之后，我把它固定在了浏览器首页的常用栏里。不是因为功能多惊艳，而是它不打断我。”
+    </blockquote>
+
+    <h2>几个常用场景</h2>
+    <p>
+      对于轻度玩家，<a href="https://appwap-igame.com">爱游戏</a> 适合午休或通勤时随便翻翻，看看有没有新上架的休闲作品。更核心的用户则可以利用收藏功能建立自己的游戏库，并在评论区看到其他人的反馈。另外，站内的专栏文章偶尔会推荐一些冷门但完成度高的游戏，品质往往出乎意料。
+    </p>
+    <p>
+      如果你在寻找一款特定老游戏，不妨试试搜索它的英文原名或简称，匹配率比纯中文关键词更高。这是社区用户积累下来的小技巧，站点本身并没有刻意宣传。
+    </p>
+
+    <h2>最后，一个提醒</h2>
+    <p>
+      无论使用哪个平台，都建议留意网址的拼写。仿冒或相似域名并不少见。认准 <a href="https://appwap-igame.com">爱游戏</a> 的完整地址，避免通过不明来源的短链接进入。另外，网站不需要你主动提供任何敏感信息即可正常浏览内容——如果遇到要求输入手机或支付密码的页面，请立刻关闭。
+    </p>
+
+    <!-- 自然访问句 -->
+    <div class="visit-note">
+      <p>如果你还没去过，现在可以试试：<a href="https://appwap-igame.com">爱游戏</a>。</p>
+      <span class="signature">直接访问，无需中介</span>
+    </div>
+
+  </main>
+
+  <!-- 底部留白，不增加额外元素 -->
+  <div style="height: 1.5rem;"></div>
+
+</div>
+
+</body>
+</html>
